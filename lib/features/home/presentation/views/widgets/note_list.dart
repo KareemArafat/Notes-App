@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/features/home/presentation/manager/show_notes_cubit/show_notes_cubit.dart';
 import 'package:notes_app/core/models/note_model.dart';
-import 'package:notes_app/features/home/presentation/views/widgets/note_card.dart';
+import 'package:notes_app/features/home/presentation/views/widgets/note_item.dart';
 
 class NoteList extends StatefulWidget {
   const NoteList({super.key});
@@ -31,7 +31,7 @@ class _NoteListState extends State<NoteList> {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 10),
-                child: NoteCard(note: notes[index]),
+                child: NoteItem(note: notes[index]),
               );
             },
           ),

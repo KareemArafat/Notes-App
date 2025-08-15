@@ -11,16 +11,7 @@ class ColorsList extends StatefulWidget {
 }
 
 class _ColorsListState extends State<ColorsList> {
-  int? currentIndex;
-
-  List<Color> colors = [
-    Colors.red,
-    Colors.orange,
-    Colors.yellow,
-    Colors.green,
-    const Color.fromARGB(255, 72, 195, 213),
-    Colors.blue
-  ];
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -28,16 +19,17 @@ class _ColorsListState extends State<ColorsList> {
       height: 30 * 2,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 6,
+        itemCount: colorsList.length,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
               currentIndex = index;
-              BlocProvider.of<AddNoteCubit>(context).color = colors[index];
+              BlocProvider.of<AddNoteCubit>(context).baseColors =
+                  colorsList[index];
               setState(() {});
             },
             child: ColorItem(
-              color: colors[index],
+              color: colorsList[index],
               colorChosen: currentIndex == index ? true : false,
             ),
           );

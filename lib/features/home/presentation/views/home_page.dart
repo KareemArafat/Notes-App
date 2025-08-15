@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/consts.dart';
-import 'package:notes_app/features/home/presentation/views/widgets/add_note_button.dart';
-import 'package:notes_app/core/widgets/custom_app_bar.dart';
+import 'package:notes_app/features/home/presentation/views/widgets/add_note_sheet.dart';
+import 'package:notes_app/features/home/presentation/views/widgets/home_app_bar.dart';
 import 'package:notes_app/features/home/presentation/views/widgets/note_list.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
             isScrollControlled: true,
             context: context,
             builder: (context) {
-              return const AddNoteButton();
+              return const AddNoteSheet();
             },
           );
         },
@@ -26,12 +26,7 @@ class HomePage extends StatelessWidget {
       ),
       body: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            CustomAppBar(title: 'My Notes', icon: Icons.search),
-            NoteList(),
-          ],
-        ),
+        child: Column(children: [HomeAppBar(), NoteList()]),
       ),
     );
   }
